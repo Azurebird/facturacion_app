@@ -17,8 +17,8 @@ You could the image locally by following these steps:
 
 Build the image
 
-    ```docker build -t facturacion_app .```
+    docker build -t facturacion_app .
   
 Run it
 
-    ```docker run -p 8080:8080 facturacion_app```
+    docker run -p 8080:8080 facturacion_app
