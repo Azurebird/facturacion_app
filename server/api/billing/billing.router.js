@@ -5,8 +5,8 @@ const router = express.Router();
 
 router.post('/', billing.create);
 
-router.update('/', billing.update);
+router.put('/', billing.update);
 
-router.remove('/', billing.remove);
+router.delete('/', billing.remove);
 
 module.exports = router;

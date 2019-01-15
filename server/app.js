@@ -1,8 +1,10 @@
 import express from 'express';
 import config from './config/environment';
-import routes from './server/routes';
+import startMongo from './config/mongo';
+import routes from './routes';
 
 const app = express();
+startMongo();
 routes(app);
 
 app.listen(config.server.port, () => {

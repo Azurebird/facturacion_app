@@ -1,19 +1,19 @@
 # Facturacion APP
 
 ## Requirements
-Node version: 10.5.0
+- Node version: 10.5.0
+- MongoDB version: 4.0
 
 ## Folder structure
 
 ```
 .
-├── config
 ├── server
 └── *
 ```
 
 ## Docker
-You could the image locally by following these steps:
+You could run the image locally by following these steps:
 
 Build the image
 

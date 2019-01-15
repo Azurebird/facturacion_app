@@ -1,6 +1,6 @@
-import create from './service/billing.service.create';
-import update from './service/billing.service.update';
-import remove from './service/billing.service.remove';
+import create from './service/actions/billing.service.create';
+import update from './service/actions/billing.service.update';
+import remove from './service/actions/billing.service.remove';
 
 module.exports = {
   create,
