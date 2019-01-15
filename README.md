@@ -9,7 +9,7 @@ The Entry point of the applicaction is `./server/app.js` from there you could re
 
 ## Requirements
 - Node version: 10.5.0
-- MongoDB version: 4.0
+- MongoDB version: 4.0 (Should be exposed in the port 27017)
 
 ## Folder structure
 
