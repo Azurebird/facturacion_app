@@ -1,10 +1,12 @@
 import express from 'express';
-import { receivePayment, cancelPayment } from './billing.controller';
+import billing from './billing.controller';
 
 const router = express.Router();
 
-router.post('/pay', receivePayment);
+router.post('/', billing.create);
 
-router.delete('/cancel', cancelPayment);
+router.update('/', billing.update);
+
+router.remove('/', billing.remove);
 
 module.exports = router;

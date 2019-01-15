@@ -1,13 +1,22 @@
+import billingService from './billing.service';
 
-const receivePayment = (req, res) => {
+const create = (req, res) => {
+  billingService.create();
   res.status(200);
 };
 
-const cancelPayment = (req, res) => {
+const update = (req, res) => {
+  billingService.update();
+  res.status(200);
+};
+
+const remove = (req, res) => {
+  billingService.remove();
   res.status(200);
 };
 
 module.exports = {
-  receivePayment,
-  cancelPayment,
+  create,
+  update,
+  remove,
 };
