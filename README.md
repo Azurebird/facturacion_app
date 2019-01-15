@@ -1,4 +1,11 @@
 # Facturacion APP
+This repository was created with the purpose the train my skills in node using different tools like:
+- Node: Tool which runs JS throught the V8 engine.
+- Babel: Transpiler to write ES6 code in Node.
+- Docker: Tool to create containers.
+- Eslint: To make use of the better ES6 practices.
+
+The Entry point of the applicaction is `./server/app.js` from there you could reach every corner of the project.
 
 ## Requirements
 - Node version: 10.5.0
@@ -8,7 +15,10 @@
 
 ```
 .
-├── server
+├── server                                      # All the application is here
+│   ├── api                                     # The exposed api with different services
+│   └── config                                  # Some configuration files
+├── test                                        # Empty folder with no tests
 └── *
 ```
 
