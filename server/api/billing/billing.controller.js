@@ -1,8 +1,8 @@
 import billingService from './billing.service';
 
-const create = (req, res) => {
-  billingService.create();
-  res.status(200);
+const create = async (req, res) => {
+  const response = await billingService.create(req);
+  res.status(200).json(response);
 };
 
 const update = (req, res) => {

@@ -3,9 +3,9 @@ import moment from 'moment';
 
 const BillSchema = new Schema(
   {
-    userId: { type: Number, required: true },
+    userId: { type: String, required: true },
     client: { type: Schema.Types.Mixed, required: true },
-    createdAt: { type: Schema.Types.Mixed, default: moment().toDate() },
+    createdAt: { type: Date, default: moment().toDate() },
     products: { type: Schema.Types.Array },
   },
   { timestamps: true },
