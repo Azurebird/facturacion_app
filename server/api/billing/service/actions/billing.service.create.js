@@ -1,15 +1,35 @@
-import Joi from 'joi';
+import Joi from '../../../../config/joi';
 import billingModel from '../model/billing.model';
+import { BadRequest } from '../../../errors/http.errors';
 
 const schema = Joi.object().keys({
-  userId: Joi.string().required(),
-  client: Joi.string().required(),
+  userId: Joi.string().required()
+    .error(new BadRequest()),
+  client: Joi.object().required()
+    .error(new BadRequest()),
   products: [Joi.object()],
 });
 
+/**
+ * @param {object} req
+ * @param {string} req.userId
+ * @param {object} req.client
+ */
 export default async (req) => {
-  Joi.validate(req, schema);
+  try {
+    await Joi.validateAsync(req, schema);
 
-  const result = await billingModel.create({ userId: '1', client: {} });
-  return result;
+    const result = await billingModel.create(req);
+    return {
+      status: 200,
+      message: 'OK',
+      body: result,
+    };
+  } catch (e) {
+    return {
+      status: e.status,
+      message: e.message,
+      body: {},
+    };
+  }
 };
