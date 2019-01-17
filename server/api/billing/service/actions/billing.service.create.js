@@ -1,6 +1,6 @@
 import Joi from '../../../../config/joi';
+import { BadRequest } from '../../../errors/http.errors'; // eslint-disable-line import/named
 import billingModel from '../model/billing.model';
-import { BadRequest } from '../../../errors/http.errors';
 
 const schema = Joi.object().keys({
   userId: Joi.string().required()
