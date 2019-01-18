@@ -5,7 +5,7 @@ const BillSchema = new Schema(
   {
     userId: { type: String, required: true },
     client: { type: Schema.Types.Mixed, required: true },
-    createdAt: { type: Date, default: moment().toDate() },
+    createdAt: { type: Date, default: () => moment().toDate() },
     products: { type: Schema.Types.Array },
   },
   { timestamps: true },

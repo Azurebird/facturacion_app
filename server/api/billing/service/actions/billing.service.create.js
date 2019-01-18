@@ -4,9 +4,13 @@ import billingModel from '../model/billing.model';
 
 const schema = Joi.object().keys({
   userId: Joi.string().required()
-    .error(new BadRequest()),
+    .error(new BadRequest(
+      'userId is required',
+    )),
   client: Joi.object().required()
-    .error(new BadRequest()),
+    .error(new BadRequest(
+      'client is required',
+    )),
   products: [Joi.object()],
 });
 
@@ -17,9 +21,9 @@ const schema = Joi.object().keys({
  */
 export default async (req) => {
   try {
-    await Joi.validateAsync(req, schema);
+    await Joi.validateAsync(req.body, schema);
 
-    const result = await billingModel.create(req);
+    const result = await billingModel.create(req.body);
     return {
       status: 200,
       message: 'OK',
