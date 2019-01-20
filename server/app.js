@@ -6,8 +6,8 @@ import routes from './routes';
 
 const app = express();
 startMongo();
-routes(app);
 app.use(bodyParser.json());
+routes(app);
 
 app.listen(config.server.port, () => {
   console.log(`Server listening at ${config.server.port}`);
