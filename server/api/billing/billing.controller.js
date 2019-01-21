@@ -10,9 +10,9 @@ const update = (req, res) => {
   res.status(200);
 };
 
-const remove = (req, res) => {
-  billingService.remove();
-  res.status(200);
+const remove = async (req, res) => {
+  const response = await billingService.remove(req);
+  res.status(response.status).json(response);
 };
 
 module.exports = {
