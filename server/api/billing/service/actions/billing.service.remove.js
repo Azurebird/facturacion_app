@@ -1,6 +1,7 @@
 import Joi from '../../../../config/joi';
 import { BadRequest } from '../../../errors/http.errors'; // eslint-disable-line import/named
 import billingModel from '../model/billing.model';
+import { CreateSuccessResponse, CreateErrorResponse } from '../../../utils/utils.status';
 
 const schema = Joi.object().keys({
   billingId: Joi.string().required()
@@ -20,16 +21,8 @@ export default async (req) => {
 
     const { billingId } = req.body;
     const result = await billingModel.findByIdAndRemove(billingId);
-    return {
-      status: 200,
-      message: 'OK',
-      body: result,
-    };
+    return CreateSuccessResponse(result);
   } catch (e) {
-    return {
-      status: e.status,
-      message: e.message,
-      body: {},
-    };
+    return CreateErrorResponse(e);
   }
 };
