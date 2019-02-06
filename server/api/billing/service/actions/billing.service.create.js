@@ -1,16 +1,17 @@
 import Joi from '../../../../config/joi';
 import { BadRequest } from '../../../errors/http.errors'; // eslint-disable-line import/named
+import { CreateErrorResponse, CreateSuccessResponse } from '../../../utils/utils.status';
 import billingModel from '../model/billing.model';
-import { CreateSuccessResponse, CreateErrorResponse } from '../../../utils/utils.status';
+import { errors } from '../../../errors/errors.messages';
 
 const schema = Joi.object().keys({
   userId: Joi.string().required()
     .error(new BadRequest(
-      'userId is required',
+      errors.userId.message,
     )),
   client: Joi.object().required()
     .error(new BadRequest(
-      'client is required',
+      errors.client.message,
     )),
   products: [Joi.object()],
 });
@@ -20,7 +21,7 @@ const schema = Joi.object().keys({
  * @param {string} req.userId
  * @param {object} req.client
  */
-export default async (req) => {
+export default async function create(req) {
   try {
     await Joi.validateAsync(req.body, schema);
 
@@ -29,4 +30,4 @@ export default async (req) => {
   } catch (e) {
     return CreateErrorResponse(e);
   }
-};
+}

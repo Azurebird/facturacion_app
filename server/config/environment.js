@@ -3,6 +3,7 @@ module.exports = {
     port: 8080,
   },
   mongo: {
-    connection_url: 'mongodb://localhost:27017/facturacion_app',
+    connection_url: process.env.MONGO_CONNECTION_STR
+      || 'mongodb://localhost:27017/facturacion_app_test',
   },
 };

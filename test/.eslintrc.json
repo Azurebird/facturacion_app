@@ -16,6 +16,7 @@
       {
         "code": 100
       }
-    ]
+    ],
+    "no-unused-expressions": "off"
   }
 }
