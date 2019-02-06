@@ -2,7 +2,7 @@ import Joi from '../../../../config/joi';
 import { BadRequest } from '../../../errors/http.errors'; // eslint-disable-line import/named
 import { CreateErrorResponse, CreateSuccessResponse } from '../../../utils/utils.status';
 import billingModel from '../model/billing.model';
-import { errors } from '../../../errors/errors.messages';
+import errors from '../../../errors/errors.messages';
 
 const schema = Joi.object().keys({
   userId: Joi.string().required()
